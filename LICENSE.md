@@ -1,6 +1,6 @@
-monokai theme copyright Wimer Hazenberg.
+vim-custom-syntax copyright Long Tian.
 
-molokai.vim source code is licensed as follows:
+vim-custom-syntax source code is licensed as follows:
 
 The MIT License (MIT)
 
