@@ -16,7 +16,6 @@ Bundle "nine2/vim-custom-syntax"
 
 If you prefer the scheme to highlight the syntax, put this in your .vimrc file: 
 ```
-" c/cpp syntax
 let g:custom_syntax_hightlight_brace = 1
 let g:custom_syntax_hightlight_macro = 1
 let g:custom_syntax_hightlight_functions = 1
