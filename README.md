@@ -28,4 +28,8 @@ let g:custom_syntax_hightlight_custom_type_ts = 1
 
 Put `syntax/workspace_syntax.vim` to your project and rename to `.workspace_syntax.vim`, you can write yourself syntax. Like keyword.
 
+Copy this to your .bashrc.
+```
+alias pro_syntax="touch .workspace_syntax.vim"
+```
 
