@@ -13,7 +13,7 @@ if exists('+autochdir') && &autochdir
   set noautochdir
 endif
 
-
+" directory not in root_dirs
 fun! GetParentDirs(directory)
   let root_dirs = []
   if !empty(a:directory)
@@ -31,8 +31,10 @@ fun! GetParentDirs(directory)
   return root_dirs
 endfun
 
+" find from fromdir
 fun! GetFileInParentDirs(fromdir, filename)
-  let parent_dirs = GetParentDirs(a:fromdir)
+  let parent_dirs = GetParentDirs(a:fromdir.'/flag')
+  " echo parent_dirs
   if !len(parent_dirs)
     return ""
   endif
