@@ -12,24 +12,28 @@ endif
 
 " Operation
 if !exists("g:custom_syntax_hightlight_operators")
-  let g:custom_syntax_hightlight_operators= 1
+  let g:custom_syntax_hightlight_operators= 0
+  let g:custom_syntax_hightlight_operators_dot = 0
 endif
 if g:custom_syntax_hightlight_operators isnot 0
-    syntax match cUserOperation display "[?:\.+=\-&|~%^]"
+    syntax match cUserOperation display "[?:+=\-&|~%^]"
+    if g:custom_syntax_hightlight_operators_dot isnot 0
+        syntax match cUserOperation display "\."
+    endif
     syntax match cUserOperation display "[<>!]"
     syntax match cUserOperation display "[<>!]="
-    syntax match cUserOperation display "[+=\-&|~]="
-    syntax match cUserOperation display "\(&&\|||\)"
-    syntax match cUserOperation display "\(&&\|||\)$"
     syntax match cUserOperation display "!"
     syntax match cUserOperation display ";"
     syntax match cUserOperation display ","
-    syntax match cUserOperation display "++"
-    syntax match cUserOperation display ">>=\?"
-    syntax match cUserOperation display "<<=\?"
-    syntax match cUserOperation display "--"
-    syntax match cUserOperation display "/="
-    syntax match cUserOperation display "*="
+    " syntax match cUserOperation display "[+=\-&|~]="
+    " syntax match cUserOperation display "\(&&\|||\)"
+    " syntax match cUserOperation display "\(&&\|||\)$"
+    " syntax match cUserOperation display "++"
+    " syntax match cUserOperation display ">>=\?"
+    " syntax match cUserOperation display "<<=\?"
+    " syntax match cUserOperation display "--"
+    " syntax match cUserOperation display "/="
+    " syntax match cUserOperation display "*="
     syntax match cUserOperation display "[\[\]]"
     " Filter Comment
     syntax match cUserOperation display "/[^/*]"me=e-1
@@ -49,7 +53,7 @@ endif
 
 " Macro
 if !exists("g:custom_syntax_hightlight_macro")
-  let g:custom_syntax_hightlight_macro= 1
+  let g:custom_syntax_hightlight_macro= 0
 endif
 if g:custom_syntax_hightlight_macro isnot 0
     syntax match cUserMacro    display  "[^a-zA-Z0-9_"][A-Z_][A-Z0-9_][A-Z0-9_]*[^a-zA-Z0-9_"]"hs=s+1,he=e-1,ms=s+1,me=e-1
@@ -58,27 +62,18 @@ endif
 
 " Type
 if !exists("g:custom_syntax_hightlight_custom_type_ts")
-  let g:custom_syntax_hightlight_custom_type_ts = 1
+  let g:custom_syntax_hightlight_custom_type_ts = 0
 endif
 if g:custom_syntax_hightlight_custom_type_ts isnot 0
     syntax match cUserType      display "[a-zA-Z_][a-zA-Z0-9_]*_[ts][^a-zA-Z0-9_]"me=e-1
 endif
-
-" Sys
-if &filetype == "go" || expand("%:e") == ".go"
-    let g:go_highlight_functions = 1
-    let g:go_highlight_function_calls = 1
-    let g:go_highlight_types = 1
-    let g:go_highlight_operators = 1
-endif
-
 
 " Read the Project Custom syntax to start with
 runtime! syntax/workspace_syntax.vim
 " let b:current_syntax_custom_file = expand("%:p:h")."/.workspace_syntax.vim"
 let b:current_syntax_custom_file = GetFileInParentDirs(expand('%:p:h'), ".workspace_syntax.vim")
 if filereadable(b:current_syntax_custom_file)
-    execute "so ".b:current_syntax_custom_file
+   execute "so ".b:current_syntax_custom_file
 endif
 " echom b:current_syntax_custom_file
 
@@ -139,4 +134,7 @@ hi def link cUserFunction	Function
 hi def link cUserOperation	Operation
 hi def link cBrace		Brace
 hi def link cUserMacro		Macro
+
+
+hi def link     goOperator          Operation
 " vim: ts=8
