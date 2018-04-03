@@ -13,6 +13,8 @@ endif
 " Operation
 if !exists("g:custom_syntax_hightlight_operators")
   let g:custom_syntax_hightlight_operators= 0
+endif
+if !exists("g:custom_syntax_hightlight_operators_dot")
   let g:custom_syntax_hightlight_operators_dot = 0
 endif
 if g:custom_syntax_hightlight_operators isnot 0
