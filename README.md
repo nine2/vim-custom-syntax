@@ -35,5 +35,5 @@ alias pro_syntax="touch .workspace_syntax.vim"
 ## Disable Plug
 
 ```
-let g:nine2_custom_syntax_hightlight_enable = 0
+let g:custom_syntax_hightlight_enable = 0
 ```
