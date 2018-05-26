@@ -1,4 +1,11 @@
 
+if !exists("g:custom_syntax_hightlight_enable")
+  let g:custom_syntax_hightlight_enable= 1
+endif
+if g:custom_syntax_hightlight_enable is 0
+    finish
+endif
+
 " Function
 if !exists("g:custom_syntax_hightlight_functions")
   let g:custom_syntax_hightlight_functions = 1
