@@ -16,9 +16,8 @@ if &filetype == "go" || expand("%:e") == ".go"
     syn keyword StorageClass fmt log http context strings strconv time sort
     syn keyword StorageClass io ioutil json jsonrpc errors net
 
-    syn keyword Conditional make append delete len
-
-    syn keyword Conditional panic recover
+    " syn keyword Conditional make append delete len
+    " syn keyword Conditional panic recover
 
   hi def link   goArgumentName     FunctionArgument
 endif

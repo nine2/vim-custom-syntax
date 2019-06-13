@@ -145,5 +145,4 @@ hi def link cBrace		Brace
 hi def link cUserMacro		Macro
 
 
-hi def link     goOperator          Operation
 " vim: ts=8
