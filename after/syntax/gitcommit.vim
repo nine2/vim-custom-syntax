@@ -25,6 +25,7 @@ syn match   gitcommitOverflow	".*" contained contains=@Spell
 syn match   gitcommitBlank	"^[^#].*" contained contains=@Spell
 syn match   gitcommitComment	"^#.*"
 syn match   gitcommitHead	"^\%(#   .*\n\)\+#$" contained transparent
+syn match   gitcommitOnBranch	"\%(^# \)\@<=On branch" contained containedin=gitcommitComment nextgroup=gitcommitBranch skipwhite
 syn match   gitcommitOnBranch	"\%(^# \)\@<=位于分支" contained containedin=gitcommitComment nextgroup=gitcommitBranch skipwhite
 syn match   gitcommitOnBranch	"\%(^# \)\@<=Your branch .\{-\} '" contained containedin=gitcommitComment nextgroup=gitcommitBranch skipwhite
 syn match   gitcommitBranch	"[^ ']\+" contained
@@ -37,7 +38,9 @@ syn region  gitcommitUntracked	start=/^# Untracked files:/ end=/^#$\|^#\@!/ cont
 syn match   gitcommitUntrackedFile  "\t\@<=.*"	contained
 
 syn region  gitcommitDiscarded	start=/^# Change\%(s not staged for commit\|d but not updated\):/ end=/^#$\|^#\@!/ contains=gitcommitHeader,gitcommitHead,gitcommitDiscardedType fold
+syn region  gitcommitDiscarded	start=/^# 尚未暂存以备提交的变更：/ end=/^#$\|^#\@!/ contains=gitcommitHeader,gitcommitHead,gitcommitDiscardedType fold
 syn region  gitcommitSelected	start=/^# Changes to be committed:/ end=/^#$\|^#\@!/ contains=gitcommitHeader,gitcommitHead,gitcommitSelectedType fold
+syn region  gitcommitSelected	start=/^# 要提交的变更：/ end=/^#$\|^#\@!/ contains=gitcommitHeader,gitcommitHead,gitcommitSelectedType fold
 syn region  gitcommitUnmerged	start=/^# Unmerged paths:/ end=/^#$\|^#\@!/ contains=gitcommitHeader,gitcommitHead,gitcommitUnmergedType fold
 
 
